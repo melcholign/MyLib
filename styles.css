@@ -64,14 +64,26 @@ button.add-book:active {
 }
 
 dialog.add-book {
+    position: relative;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+dialog.add-book button.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: grey;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 form.add-book label {
     display: block;
 }
-
 
 form.add-book button {
     margin-top: 15px;

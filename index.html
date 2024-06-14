@@ -14,11 +14,12 @@
         <h1>MyLib</h1>
     </header>
     <main>
-        <dialog class="add-book" open>
+        <dialog class="add-book">
+            <button class="close">x</button>
             <form action="" class="add-book">
                 <p><label for="title">Title:</label><input type="text" id="title" required></p>
                 <p><label for="author">Author:</label><input type="text" id="author" required></p>
-                <p><label for="pages">Pages:</label><input type="number" id="author" min="1" step="1" required></p>
+                <p><label for="pages">Pages:</label><input type="number" id="pages" min="1" step="1" required></p>
                 <p><button>Add</button></p>
             </form>
         </dialog>
