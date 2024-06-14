@@ -33,20 +33,30 @@ function addBookToLibrary() {
 
     const book = new Book(title, author, pages);
 
-    myLibrary.push(book);
     bookCardContainer.appendChild(createBookCard(book));
+    myLibrary.push(book);
 }
 
 function createBookCard(book) {
-    const bookIndex = myLibrary.length;
-
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
-    cardDiv.setAttribute('data-index', bookIndex);
+    cardDiv.setAttribute('data-index', myLibrary.length);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
     deleteButton.appendChild(createDeleteSVG());
+    deleteButton.addEventListener('click', () => {
+        const cardIndex = cardDiv.getAttribute('data-index');
+        let newSiblingIndex = cardIndex;
+        let siblingCard = cardDiv.nextSibling;
+        while(siblingCard !== null) {
+            siblingCard.setAttribute('data-index', newSiblingIndex);
+            siblingCard = siblingCard.nextSibling;
+            newSiblingIndex++;
+        }
+        cardDiv.remove();
+        myLibrary.splice(cardIndex, 1);
+    })
     cardDiv.appendChild(deleteButton);
 
     const titleP = document.createElement('p');
@@ -71,10 +81,10 @@ function createBookCard(book) {
     readButton.addEventListener('click', () => {
         if(readButton.textContent === 'Read') {
             readButton.textContent = 'Unread';
-            myLibrary[bookIndex].read = true;
+            myLibrary[cardDiv.getAttribute('data-index')].read = true;
         } else {
             readButton.textContent = 'Read';
-            myLibrary[bookIndex].read = false;
+            myLibrary[cardDiv.getAttribute('data-index')].read = false;
         }
     })
 
@@ -109,6 +119,7 @@ addBookForm.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookDialog.close();
     addBookToLibrary();
+    addBookInputs.forEach(input => input.value = '')
 })
 
 closeAddBookButton.addEventListener('click', () => {
