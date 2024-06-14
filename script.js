@@ -81,9 +81,11 @@ function createBookCard(book) {
     readButton.addEventListener('click', () => {
         if(readButton.textContent === 'Read') {
             readButton.textContent = 'Unread';
+            readP.classList.add('unread');
             myLibrary[cardDiv.getAttribute('data-index')].read = true;
         } else {
             readButton.textContent = 'Read';
+            readP.classList.remove('unread')
             myLibrary[cardDiv.getAttribute('data-index')].read = false;
         }
     })
