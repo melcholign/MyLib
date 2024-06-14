@@ -31,4 +31,55 @@ body > footer > a {
 
 body > main {
     flex: 1;
+    padding: 25px min(100px, 5%);
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    grid-auto-rows: max-content;
+    gap: 10px;
+}
+
+.card {
+    position: relative;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.book-title {
+    font-variant: small-caps;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.book-info > p:not(.book-read) {
+    margin: 5px;
+}
+
+.book-read > button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.delete {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.delete svg {
+    width: 25px;
+    height: auto;
+}
+
+.delete path {
+    fill: rgb(225, 0, 0);
 }
