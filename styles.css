@@ -5,11 +5,11 @@ body {
     flex-direction: column;
 }
 
-body > header {
+body>header {
     margin: 10px 0px;
 }
 
-body > header > h1 {
+body>header>h1 {
     margin: 0px;
     font-size: 3rem;
     font-weight: bold;
@@ -18,25 +18,49 @@ body > header > h1 {
     letter-spacing: 1px;
 }
 
-body > footer {
+body>footer {
     margin: 10px 0px 20px 0px;
     text-align: center;
 }
 
-body > footer > a {
+body>footer>a {
     text-decoration: none;
     color: black;
     letter-spacing: 1px;
 }
 
-body > main {
+body>main {
     flex: 1;
     padding: 25px min(100px, 5%);
+
+}
+
+.card-container {
+    margin-top: 20px;
     display: grid;
-    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
     grid-auto-rows: max-content;
     gap: 10px;
+}
+
+.add-book button {
+    height: 2rem;
+    padding: 0px 30px;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid grey;
+    cursor: pointer;
+}
+
+.add-book button:hover {
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.add-book button:active {
+    outline: none;
+    color: gray;
+    background-color: whitesmoke;
 }
 
 .card {
@@ -53,11 +77,11 @@ body > main {
     margin-bottom: 0px;
 }
 
-.book-info > p:not(.book-read) {
+.book-info>p:not(.book-read) {
     margin: 5px;
 }
 
-.book-read > button {
+.book-read>button {
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
