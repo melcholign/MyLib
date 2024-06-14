@@ -1,11 +1,23 @@
 const myLibrary = [];
-
 const bookCardContainer = document.querySelector('.card-container')
 const addBookDialogButton = document.querySelector('button.add-book');
 const addBookDialog = document.querySelector('dialog.add-book');
 const addBookForm = document.querySelector('form.add-book');
 const addBookInputs = document.querySelectorAll('.add-book input');
 const closeAddBookButton = document.querySelector('dialog.add-book button.close')
+
+const TEST_DATA = [
+    new Book('The Hobbit', 'J.R.R. Tolkien', 320),
+    new Book('The Foundation', 'Isaac Asimov', 255),
+    new Book('A Game of Thrones', 'G.R.R. Martin', 835),
+    new Book('Sapiens: A Brief History of Mankind', 'Yuval Noah Harari', 464),
+    new Book('Freakonomics', 'Steven Levitt', 315),
+];
+
+TEST_DATA.forEach(book => {
+    myLibrary.push(book);
+    bookCardContainer.appendChild(createBookCard(book));
+});
 
 function Book(title, author, pages) {
     this.title = title;
