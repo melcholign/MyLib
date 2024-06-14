@@ -15,8 +15,8 @@ const TEST_DATA = [
 ];
 
 TEST_DATA.forEach(book => {
-    myLibrary.push(book);
     bookCardContainer.appendChild(createBookCard(book));
+    myLibrary.push(book);
 });
 
 function Book(title, author, pages) {
@@ -38,9 +38,11 @@ function addBookToLibrary() {
 }
 
 function createBookCard(book) {
+    const bookIndex = myLibrary.length;
+
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
-    cardDiv.setAttribute('data-id', myLibrary.length);
+    cardDiv.setAttribute('data-index', bookIndex);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
@@ -66,6 +68,16 @@ function createBookCard(book) {
     readP.classList.add('book-read');
     const readButton = document.createElement('button');
     readButton.textContent = 'Read';
+    readButton.addEventListener('click', () => {
+        if(readButton.textContent === 'Read') {
+            readButton.textContent = 'Unread';
+            myLibrary[bookIndex].read = true;
+        } else {
+            readButton.textContent = 'Read';
+            myLibrary[bookIndex].read = false;
+        }
+    })
+
     readP.appendChild(readButton);
     cardDiv.appendChild(readP);
 
