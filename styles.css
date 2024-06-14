@@ -43,7 +43,7 @@ body>main {
     gap: 10px;
 }
 
-.add-book button {
+button.add-book {
     height: 2rem;
     padding: 0px 30px;
     background: transparent;
@@ -53,14 +53,30 @@ body>main {
     cursor: pointer;
 }
 
-.add-book button:hover {
+button.add-book:hover {
     outline: 2px solid rgba(0, 0, 0, 0.5);
 }
 
-.add-book button:active {
+button.add-book:active {
     outline: none;
     color: gray;
     background-color: whitesmoke;
+}
+
+dialog.add-book {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+form.add-book label {
+    display: block;
+}
+
+
+form.add-book button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 5px 0px;
 }
 
 .card {
