@@ -181,17 +181,17 @@ form.add-book input:focus {
     box-shadow: inset 2px 1px 4px 1px silver;
 }
 
-.book-read.unread>button {
+button.unread {
     border: 4px solid lightcoral;
     color: lightcoral;
 }
 
-.book-read.unread>button:hover {
+button.unread:hover {
     border-color: rgb(154, 86, 86);
     color: rgb(154, 86, 86);
 }
 
-.delete {
+.remove {
     position: absolute;
     right: 5px;
     top: 12px;
@@ -201,12 +201,12 @@ form.add-book input:focus {
     cursor: pointer;
 }
 
-.delete svg {
+.remove svg {
     width: 30px;
     height: auto;
 }
 
-.delete path {
+.remove path {
     fill: crimson;
     stroke: crimson;
     stroke-width: 1px;
